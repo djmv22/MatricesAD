@@ -6,6 +6,7 @@
 
 package interfaz;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -84,6 +85,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel3.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         cmdManual.setText("Manual");
+        cmdManual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdManualActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
 
         cmdAutomatico.setText("Automático");
@@ -279,6 +285,21 @@ public class Principal extends javax.swing.JFrame {
         tm2.setColumnCount(0);
         
     }//GEN-LAST:event_cmdLimpiarActionPerformed
+
+    private void cmdManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdManualActionPerformed
+        int nf, nc, n2;
+        String n;
+        
+        nc = tblTablaInicial.getColumnCount();
+        nf = tblTablaInicial.getRowCount();
+        
+        for (int i = 0; i < nf; i++) {
+            for (int j = 0; j < nc; j++) {
+                n = JOptionPane.showInputDialog(this, "Dijite el numero en la columna "+j+" y en la fila "+i+"");
+                tblTablaInicial.setValueAt(n, i, j);
+            }
+        }
+    }//GEN-LAST:event_cmdManualActionPerformed
 
     /**
      * @param args the command line arguments
